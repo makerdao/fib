@@ -20,6 +20,7 @@ contract Fibber {
     function fibonacciSum(uint256 nAdditions, uint256 f0, uint256 f1) internal pure returns (uint256 sum) {
         for (uint256 i = 0; i < nAdditions; i++) {
             sum = f0 + f1;
+            require(sum >= f1);  // overflow
             f0 = f1;
             f1 = sum;
         }

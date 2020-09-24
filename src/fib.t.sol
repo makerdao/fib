@@ -32,4 +32,8 @@ contract FibTest is DSTest {
             assertEq(fibber.fib(i, 1, 1), firstTenValues[i]);
         }
     }
+
+    function testFail_overflow() public view {
+        fibber.fib(2, 2**255, 2**255);
+    }
 }
